@@ -5,6 +5,7 @@ const express = require("express");
 // Enables Cross Origin Resource Sharing for our Project
 const cors = require("cors");
 
+
 // Database ORM for NodeJS
 const sequelize = require("./config/database");
 
@@ -23,6 +24,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/jobs", jobRoutes);
+app.use("/api/user", require("./routes/api/user"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 // Gets the PORT from the Node env and if it
 // does not exists there, set it to 5000

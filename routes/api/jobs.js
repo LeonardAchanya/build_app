@@ -6,12 +6,14 @@
 */
 
 const express = require("express");
+const JobController = require("../../controllers/jobs");
+const authenticate = require("../../middlewares/auth");
+
 const router = express.Router();
 
-const JobController = require("../../controllers/jobs");
 
 router.get("/",JobController.getJobs);
-router.post("/",JobController.postJob);
-router.delete("/:id",JobController.deleteJob);
+router.post("/", authenticate, JobController.postJob);
+router.delete("/:id", authenticate, JobController.deleteJob);
 
 module.exports = router;

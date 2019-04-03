@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 
  import jobReducer from "./job";
+ import authReducer from "./auth";
+
 
  // Only one reducer can update the store
 // So if you split up your reducers based 
@@ -9,7 +11,9 @@ import { combineReducers } from "redux";
 // That's what we are doing here.
 
  const rootReducer = combineReducers({
-    job: jobReducer
+    job: jobReducer,
+    auth: authReducer
+
 })
 
  export default rootReducer; 
